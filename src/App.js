@@ -1,77 +1,87 @@
 import React from 'react';
 import {
   View,
-  Text,
-  StyleSheet,
+  Dimensions,
   Image,
-  ScrollView
+  Text
 } from 'react-native';
-
+const { width, height } = Dimensions.get("window");
 
 export default class App extends React.Component {
 
   render() {
+    // single line comment
+    /**
+     * Multiline */
 
     return (
-      <View style={styles.container} >
-        <Text style={[styles.text, { color: 'red'}]}>Test</Text>
-        
-        <ScrollView  
-        // showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}
-          indicatorStyle='white'
-          style={{ backgroundColor: 'red'}}
-         >
-          
-          <Image 
-            source={require('../assets/images/react-native-logo.82d4bd6c.png')} 
-            style={{width: 200, height: 200}}
-            />
-          <Image 
-            source={require('../assets/images/react-native-logo.82d4bd6c.png')} 
-            style={{width: 200, height: 200}}
-            />
-          <Image 
-            source={require('../assets/images/react-native-logo.82d4bd6c.png')} 
-            style={{width: 200, height: 200}}
-            />
-          <Image 
-            source={require('../assets/images/react-native-logo.82d4bd6c.png')} 
-            style={{width: 200, height: 200}}
-            />
-          <Image 
-            source={require('../assets/images/react-native-logo.82d4bd6c.png')} 
-            style={{width: 200, height: 200}}
-            />
-          <Image 
-            source={require('../assets/images/react-native-logo.82d4bd6c.png')} 
-            style={{width: 200, height: 200}}
-            />
-        </ScrollView>
+      <View style={{ backgroundColor: 'white', flex: 1, flexDirection: 'column', justifyContent: 'center' }} >
+
+
+<View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderColor: 'grey',
+          width: '95%', alignSelf: 'center', padding: 5, borderRadius: 12, marginBottom: 5 }} >
+          <Image
+            source={require("../assets/images/react-native-logo.82d4bd6c.png")}
+            style={{
+              width: width * 0.2,
+              height: width * 0.2,
+              alignSelf: 'center',
+              borderRadius: width * 0.1
+            }}
+          />
+          <Text style={{ fontSize: 20, marginLeft: 5 }} >
+            My Full Name
+          </Text>
+        </View>
+
+        <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderColor: 'grey',
+          width: '95%', alignSelf: 'center', padding: 5, borderRadius: 12, marginBottom: 5 }} >
+          <Image
+            source={require("../assets/images/react-native-logo.82d4bd6c.png")}
+            style={{
+              width: width * 0.2,
+              height: width * 0.2,
+              alignSelf: 'center',
+              borderRadius: width * 0.1
+            }}
+          />
+          <Text style={{ fontSize: 20, marginLeft: 5 }} >
+            My Full Name
+          </Text>
+        </View>
+        <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderColor: 'grey',
+          width: '95%', alignSelf: 'center', padding: 5, borderRadius: 12, marginBottom: 5 }} >
+          <Image
+            source={require("../assets/images/react-native-logo.82d4bd6c.png")}
+            style={{
+              width: width * 0.2,
+              height: width * 0.2,
+              alignSelf: 'center',
+              borderRadius: width * 0.1
+            }}
+          />
+          <Text style={{ fontSize: 20, marginLeft: 5 }} >
+            My Full Name
+          </Text>
+        </View>
+
+        <View style={{ flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderColor: 'grey',
+          width: '95%', alignSelf: 'center', padding: 5, borderRadius: 12 }} >
+          <Image
+            source={require("../assets/images/react-native-logo.82d4bd6c.png")}
+            style={{
+              width: width * 0.2,
+              height: width * 0.2,
+              alignSelf: 'center',
+              borderRadius: width * 0.1
+            }}
+          />
+          <Text style={{ fontSize: 20, marginLeft: 5 }} >
+            My Full Name
+          </Text>
+        </View>
 
       </View>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "rgba(255, 0, 0, 0.1)",
-    width: '100%',
-    height: '100%'
-  },
-  text: {
-    color: "blue",
-    fontSize: 50,
-    fontWeight: 'bold',
-    fontStyle: 'italic'
-  },
-  test3: {
-    fontSize: 10
-  },
-  test5: {
-    color: "red",
-    fontSize: 20,
-    fontWeight: 'normal',
-    fontStyle: 'normal'
-  }
-})
