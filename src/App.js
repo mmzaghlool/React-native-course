@@ -19,7 +19,7 @@ export default class App extends React.Component {
         <ScrollView  
         // showsHorizontalScrollIndicator={false} showsVerticalScrollIndicator={false}
           indicatorStyle='white'
-          style={{ backgroundColor: 'white'}}
+          style={{ backgroundColor: 'red'}}
          >
           
           <Image 
