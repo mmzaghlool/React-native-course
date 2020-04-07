@@ -1,158 +1,60 @@
 import React from 'react';
 import {
   View,
-  Dimensions,
-  Image,
-  Text,
-  ScrollView,
-  FlatList
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  TouchableHighlight,
+  StyleSheet,
+  Text
 } from 'react-native';
-const { width, height } = Dimensions.get("window");
 
 export default class App extends React.Component {
 
-
-  renderItem = (item) => (
-    <View style={{
-      flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderColor: 'grey',
-      width: '95%', alignSelf: 'center', padding: 5, borderRadius: 12, marginBottom: 5
-    }} >
-      <Image
-        source={{ uri: item.image }}
-        style={{
-          width: width * 0.2,
-          height: width * 0.2,
-          alignSelf: 'center',
-          borderRadius: width * 0.1
-        }}
-      />
-      <Text style={{ fontSize: 20, marginLeft: 5 }} >
-        {item.name}
-      </Text>
-    </View>
-  )
-
-  renderHeader = () => (
-    <View style={{ width: '100%', padding: 12, backgroundColor: 'green', marginBottom: 10, elevation: 20 }} >
-      <Text style={{
-        fontSize: 20,
-        color: 'white'
-      }} >
-        My Chat list
-      </Text>
-    </View>
-  )
-
-  renderList() {
-    const data = [
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 1' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 2' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 3' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-    ]
-
-    let arr = []
-
-
-    for (let i = 0; i < data.length; i++) {
-      arr.push(
-        <View key={`${i}`} style={{
-          flexDirection: 'row', alignItems: 'center', borderWidth: 1, borderColor: 'grey',
-          width: '95%', alignSelf: 'center', padding: 5, borderRadius: 12, marginBottom: 5
-        }} >
-          <Image
-            source={{ uri: data[i].image }}
-            style={{
-              width: width * 0.2,
-              height: width * 0.2,
-              alignSelf: 'center',
-              borderRadius: width * 0.1
-            }}
-          />
-          <Text style={{ fontSize: 20, marginLeft: 5 }} >
-            {data[i].name}
-          </Text>
-        </View>
-      )
-    }
-
-
-
-    return arr;
-  }
-
   render() {
-    // single line comment
-    /**
-     * Multiline */
-
-    const list = [
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 1' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 2' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 3' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-      { image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg', name: 'My Full Name 4' },
-      { image: 'https://en.es-static.us/upl/2018/12/comet-wirtanen-Jack-Fusco-dec-2018-Anza-Borrego-desert-CA-e1544613895713.jpg', name: 'My Full Name 5' },
-    ]
 
     return (
       <View
         showsVerticalScrollIndicator={false}
-        horizontal={false}
-        style={{ backgroundColor: 'white', flex: 1 }}
+        style={{ backgroundColor: 'white', flex: 1, justifyContent: 'center' }}
       >
-        {this.renderHeader()}
+        <TouchableWithoutFeedback
+          onPress={() => alert("TouchableWithoutFeedback Pressed")}
+          onLongPress={() => alert("TouchableWithoutFeedback Long Pressed")}
+        >
+          <Text > Forgot Your password?</Text>
+        </TouchableWithoutFeedback>
 
-        {/* {data.map((item) => this.renderItem(item))} */}
+        <TouchableOpacity
+          // activeOpacity={0.85}
+          // disabled={true}
+          hitSlop={{ bottom: 20, right: 50 }}
+          onPress={() => alert("TouchableOpacity Pressed")}
+          onLongPress={() => alert("TouchableOpacity Long Pressed")}
+          style={{
+            width: "80%", backgroundColor: 'green', borderRadius: 30, alignItems: 'center'
+            , padding: 10, alignSelf: 'center', margin: 20, elevation: 5
+          }}
+        >
+          <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }} >SUBMIT</Text>
+        </TouchableOpacity>
 
-        {/* {this.renderList()} */}
 
-        <FlatList
-          data={list}
-          renderItem={({ item, index }) => this.renderItem(item)}
-          keyExtractor={(item, index) => `${index}`}
-          // horizontal
-          
-        />
+        <TouchableHighlight
+          activeOpacity={0}
+          disabled={true}
 
-
+          onPress={() => alert("TouchableHighlight Pressed")}
+          onLongPress={() => alert("TouchableHighlight Long Pressed")}
+          style={{
+            width: "80%", backgroundColor: 'green', borderRadius: 30, alignItems: 'center'
+            , padding: 10, alignSelf: 'center', margin: 20, elevation: 5
+          }}
+        >
+          <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }} >SUBMIT</Text>
+        </TouchableHighlight>
       </View>
     )
   }
 }
+
