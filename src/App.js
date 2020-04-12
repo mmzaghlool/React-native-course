@@ -6,8 +6,15 @@ import {
   TouchableNativeFeedback,
   TouchableHighlight,
   StyleSheet,
-  Text
+  Text,
+  Image
 } from 'react-native';
+
+
+import { Button } from './Common/Button'
+
+
+
 
 export default class App extends React.Component {
 
@@ -18,43 +25,12 @@ export default class App extends React.Component {
         showsVerticalScrollIndicator={false}
         style={{ backgroundColor: 'white', flex: 1, justifyContent: 'center' }}
       >
-        <TouchableWithoutFeedback
-          onPress={() => alert("TouchableWithoutFeedback Pressed")}
-          onLongPress={() => alert("TouchableWithoutFeedback Long Pressed")}
-        >
-          <Text > Forgot Your password?</Text>
-        </TouchableWithoutFeedback>
 
-        <TouchableOpacity
-          // activeOpacity={0.85}
-          // disabled={true}
-          hitSlop={{ bottom: 20, right: 50 }}
-          onPress={() => alert("TouchableOpacity Pressed")}
-          onLongPress={() => alert("TouchableOpacity Long Pressed")}
-          style={{
-            width: "80%", backgroundColor: 'green', borderRadius: 30, alignItems: 'center'
-            , padding: 10, alignSelf: 'center', margin: 20, elevation: 5
-          }}
-        >
-          <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }} >SUBMIT</Text>
-        </TouchableOpacity>
+        <Button text={"Submit"} onPress={() => alert("Submit clicked")} style={{ backgroundColor: 'red'}} />
+        <Button text={"OK !"} onPress={() => alert("OK clicked")} />
+        <Button text={"Cancel"} onPress={() => alert("cancel clicked")} />
 
-
-        <TouchableHighlight
-          activeOpacity={0}
-          disabled={true}
-
-          onPress={() => alert("TouchableHighlight Pressed")}
-          onLongPress={() => alert("TouchableHighlight Long Pressed")}
-          style={{
-            width: "80%", backgroundColor: 'green', borderRadius: 30, alignItems: 'center'
-            , padding: 10, alignSelf: 'center', margin: 20, elevation: 5
-          }}
-        >
-          <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }} >SUBMIT</Text>
-        </TouchableHighlight>
       </View>
     )
   }
 }
-
